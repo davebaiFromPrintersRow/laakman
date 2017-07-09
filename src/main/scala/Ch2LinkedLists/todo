@@ -1,0 +1,6 @@
+Convert tests to cucumber format
+Change linked list to use generics
+Convert singly LL to doubly LL
+Remove sys outs and replace with test assertions
+add more test cases/coverage
+make LL class easier to use, modify, and access
