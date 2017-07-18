@@ -5,11 +5,11 @@ import scala.collection.mutable
   algorithm to find kth to last element of singly LL
  */
 
+val kTH_POSITION = 3;
+val singlyLinkedList = mutable.LinkedList(13, 38, 2, 86, 29, 22, 90, 11, 29, 32)
 
 object kthLast {
   println("ch 2 question 2")
-
-  val singlyLinkedList = mutable.LinkedList(13, 38, 2, 86, 29, 22, 90, 11, 29, 32)
 
   // algorithm 1: challenge in this problem is we don't have a back reference to the
   // previous node in a singly ll.
@@ -28,22 +28,27 @@ object kthLast {
   }
   length
 
-  val kthPosition = 3;
-
   sllIterator = singlyLinkedList
   var counter = 0;
   while (sllIterator.nonEmpty) {
     sllIterator = sllIterator.next;
     counter += 1
-    if (counter == length - kthPosition) {
+    if (counter == length - kTH_POSITION) {
       println("remove node: " + sllIterator.elem)
     }
   }
 
   // algorithm 2: recursive
-
+  recursiveSearch(singlyLinkedList, 4)
 }
 
-def recursiveSearch: Unit = {
-
+def recursiveSearch(element: mutable.LinkedList[Int], kthLast: Int): Int = {
+  if (!element.next.nonEmpty) {
+    return 1
+  }
+  var counter = recursiveSearch(element.next, kthLast) + 1
+  if (counter == kTH_POSITION) {
+    println("remove element: " + element.elem + " at position: " + kTH_POSITION)
+  }
+  return counter
 }
