@@ -2,7 +2,7 @@ package Ch2LinkedLists
 
 import scala.collection.mutable
 
-object Ch2Q3e {
+object Ch2Q3 {
 
   def main(args: Array[String]) {
     println("delete middle node")
